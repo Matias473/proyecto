@@ -18,6 +18,7 @@ $privilegio = $_SESSION['privilegio']; // Ya está asegurado que existe por la v
 
     <?php if ($privilegio == 'admin'): ?>
         <h2>Si eres admin, puedes ver este contenido exclusivo para administradores.</h2>
+        <p><a href="../sesiones/registro_user.php">nuevo usuario</a></p>
     <?php elseif ($privilegio == 'docente'): ?>
         <h2>Si eres docente, puedes ver este contenido exclusivo para docentes.</h2>
     <?php elseif ($privilegio == 'secretaria'): ?>
