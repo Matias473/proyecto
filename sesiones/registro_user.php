@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['contrasena'];
     $privilegio = $_POST['privilegio'];
     $estatus= 1;
-    $sentencia = "INSERT INTO usuarios (email, contrasena, privilegio, estatus) VALUES ('$email', '$password', '$privilegio', $estatus)";
+    $sentencia = "INSERT INTO usuarios (email, contrasena, privilegio, estatus) VALUES ('$email', '$password', '$privilegio', '$estatus')";
     
     $ejecutar_sql = $conn->query($sentencia);
 
