@@ -12,16 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $email = $_POST['email'];
     $password = $_POST['contrasena'];
-    $privilegio = $_POST['privilegio'];
-    $estatus= 1;
-    $sentencia = "INSERT INTO usuarios (email, contrasena, privilegio, estatus) VALUES ('$email', '$password', '$privilegio', '$estatus')";
+    $privi = $_POST['privilegio'];
+    $status= 1;
+    $sentencia = "INSERT INTO usuarios (email, contrasena, privilegio, estatus) VALUES ('$email', '$password', '$privi', '$status')";
     
     $ejecutar_sql = $conn->query($sentencia);
 
     if ($ejecutar_sql) {
         $entrar = "insertar";
         $mensaje = "se ha hecho el registro";
-        header('location: ../index.php');
+        header('location: ../pagina/inicio.php');
     } else {
         $entrar = "noinsertar";
     }
@@ -40,9 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     '<p>$mensaje</p>';
     ?>
 
-    <form action="crear_usuario.php" method="post">
+    <form action="registro_user.php" method="post">
         <label for="email">Correo Electrónico:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="text" id="email" name="email" required>
         <br><br>
 
         <label for="contrasena">Contraseña:</label>
