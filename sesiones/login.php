@@ -3,8 +3,8 @@ session_start(); // Mantener la sesión activa
 
 $acceso = "";
 $mensaje = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") { // Corrección aquí
+// manejo de peticiones web
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     $user = $_POST['usuario'];
     $contra = $_POST['contraseña'];
 

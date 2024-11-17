@@ -5,7 +5,7 @@ $username = "root";
 $password = "";
 $dbname = "secundaria4";       
 
-// Crear la conexión con MySQL
+// Crear la conexión con MySQL y uso de la POO
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar la conexión
