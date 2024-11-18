@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_curp'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Empleados</title>
+    <!-- link para los iconos de acciones -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -75,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_curp'])) {
                             echo "<i class='fa fa-eye'></i>";
                             echo "</a>";
                             // Botón Editar
-                            echo "<a href='editar_empleado.php?curp=" . urlencode($row["CURP"]) . "'>";
+                            echo "<a href='mod_empleado.php?curp=" . urlencode($row["CURP"]) . "'>";
                             echo "<i class='fa fa-edit'></i>";
                             echo "</a>";
                             // Botón Eliminar
