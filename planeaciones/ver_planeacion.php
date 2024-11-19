@@ -1,14 +1,25 @@
 <?php
           include_once("conectar.php");
  
-          $consulta="select id_planeacion,nom_archivo,size_arch,ruta,extension from planeaciones";
+          $consulta="select id_planeacion, subido_por, docente_encargado, nombre_materia, grado, periodo, fecha_creacion, hora_creacion, archivo, aprobacion, aprobado_por, estatus, nom_arch, size_arch, ruta, extencion from planeaciones";
           $resultado=$con->query($consulta);  
           echo "<br><h3 align=center> Planeaciones</h3>";
           echo "<hr>";
           echo "<table align=center border=1>";
           echo "<tr>";
-          echo "<td>No.</td>";
-          echo "<td>Planeacion</td>";   
+          echo "<td>#</td>";
+          echo "<td>Subido Por</td>";
+          echo "<td>Docente</td>"; 
+          echo "<td>Materia</td>"; 
+          echo "<td>Grado</td>";
+          echo "<td>Periodo</td>"; 
+          echo "<td>Fecha</td>"; 
+          echo "<td>Hora</td>"; 
+          echo "<td>Archivo</td>"; 
+          echo "<td>Aprobacion</td>"; 
+          echo "<td>Aprobado Por</td>"; 
+          echo "<td>Estatus</td>"; 
+          echo "<td>Archivo</td>"; 
           echo "<td>Tamaño</td>";
           echo "<td>Ruta</td>";
           echo "<td>Extensión</td>";

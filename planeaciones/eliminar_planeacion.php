@@ -10,8 +10,14 @@
 
 	$id_planeacion = $_GET['id_planeacion'];
 
-	$consulta="select nom_archivo from planeaciones where id_planeacion='$id_planeacion'";
-
+	// 1. Consulta para obtener el nombre del archivo
+	$consulta_archivo = "SELECT nom_arch FROM planeaciones WHERE id_planeacion = '$id_planeacion'";
+	$result = mysqli_query($conn, $consulta_archivo);
+	
+	if ($result && mysqli_num_rows($result) > 0) {
+		$row = mysqli_fetch_assoc($result);
+		$nombre_archivo = $row['nom_arch'];
+		
 	$resultado=$con->query($consulta);
 
 	if ($fila =$resultado->fetch_assoc())

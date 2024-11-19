@@ -19,10 +19,14 @@
               {
                 
                 require_once("conectar.php");
-                $consulta="insert into planeaciones (null, null, null, null, null, null, null, null, null, null, null, null, '$nom_file', '$size_arch', '$ruta_file','$extencion_arch')";
-      
+                $consulta = "INSERT INTO planeaciones 
+                (subido_por, docente_encargado, nombre_materia, grado, periodo, fecha_creacion, hora_creacion, archivo, aprobacion, aprobado_por, estatus, nom_arch, size_arch, ruta, extencion) 
+                VALUES 
+                (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$nom_file', '$size_arch', '$ruta_file', '$extencion_arch')";
+            
                 //ejecutar la consulta en mysqli procedimental
                 $resultado=$con->query($consulta);
+                
 
                 //Enviar al control al archivo visualizar 
                 if($resultado) 
