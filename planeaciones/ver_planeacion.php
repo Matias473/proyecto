@@ -38,6 +38,6 @@
             echo "</table>";
             echo "<hr>";
 
-            echo "<a href='subir_file.php'><h3 align=center >Volver</h3></a>";
+            echo "<a href='subir_planeacion.php'><h3 align=center >Volver</h3></a>";
 ?>
 
