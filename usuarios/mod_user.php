@@ -23,14 +23,21 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['email'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
     $email_us = $_POST['email'];
-    $privilegio_us = $_POST['privilegio']; // Corregido: nombre del campo
-    $estatus_us = isset($_POST['estatus']) ? 1 : 0;  // El campo estatus será 1 si está marcado
+    $privilegio_us = $_POST['privilegio'];
+
+    // Encriptar la nueva contraseña si se proporciona
+    $pass_us = $_POST['pass'];
+    $set_password = "";
+    if (!empty($pass_us)) {
+        $pass_hash = password_hash($pass_us, PASSWORD_DEFAULT); // Encriptar
+        $set_password = "contrasena = '$pass_hash', ";
+    }
 
     // Actualizar los datos del usuario
     $sentencia = "UPDATE usuarios SET 
-        privilegio = '$privilegio_us', 
-        estatus = '$estatus_us' 
-        WHERE email = '$email_us'"; // Corregido: quitar coma extra
+        $set_password
+        privilegio = '$privilegio_us' 
+        WHERE email = '$email_us'";
 
     if (mysqli_query($conn, $sentencia)) {
         $mensaje = "Datos del usuario actualizados con éxito.";
@@ -64,9 +71,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="email">Email:</label>
         <input type="email" name="email" value="<?php echo $usuario['email'] ?? ''; ?>" readonly><br>
 
-        <!-- este campo debe de contener varias elecciones como el de docente, secretaria, etc -->
+        <!-- Campo de contraseña -->
+        <label for="pass">Nueva Contraseña:</label>
+        <input type="text" name="pass" placeholder="Dejar en blanco para no cambiar"><br>
+
+        <!-- Campo de privilegio con opciones -->
         <label for="privilegio">Privilegio:</label>
-        <select name="privilegio" id="privilegio"> <!-- Corregido: nombre del campo -->
+        <select name="privilegio" id="privilegio">
             <option value="docente" <?php echo ($usuario['privilegio'] == 'docente' ? 'selected' : ''); ?>>Docente</option>
             <option value="secretaria" <?php echo ($usuario['privilegio'] == 'secretaria' ? 'selected' : ''); ?>>Secretaria</option>
             <option value="directivo" <?php echo ($usuario['privilegio'] == 'directivo' ? 'selected' : ''); ?>>Directivo</option>

@@ -1,5 +1,3 @@
-<!-- se añadieron alertas en este caso -->
-
 <?php
 include('../sesiones/sesiones.php');
 
@@ -14,10 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $privi = $_POST['privilegio'];
     $status = 1;
 
+    // Encriptar la contraseña
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
     // Desactivar las excepciones de MySQLi
     mysqli_report(MYSQLI_REPORT_OFF);
 
-    $sentencia = "INSERT INTO usuarios (email, contrasena, privilegio, estatus) VALUES ('$email', '$password', '$privi', '$status')";
+    $sentencia = "INSERT INTO usuarios (email, contrasena, privilegio, estatus) VALUES ('$email', '$hashed_password', '$privi', '$status')";
 
     // Intentar ejecutar el query y manejar errores
     $ejecutar_sql = $conn->query($sentencia);
@@ -33,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 
 
 <!DOCTYPE html>
