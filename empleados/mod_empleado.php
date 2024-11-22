@@ -102,6 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="../pagina/inicio.php" class="navbar-link">Inicio</a></li>
                 <li><a href="../empleados/tabla2.php" class="navbar-link">Gestión de empleados</a></li>
                 <li><a href="../usuarios/gestion_user.php" class="navbar-link">Gestión de usuarios</a></li>
+                <li><a href="../empleados/bajas.php" class="navbar-link">Empleados dados de baja</a></li>
             </ul>
         </div>
         <a href="../sesiones/logout.php" class="logout-link" id="logout-link">Cerrar sesión</a>

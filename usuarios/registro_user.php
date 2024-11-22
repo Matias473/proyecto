@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="../usuarios/gestion_user.php" class="navbar-link" id="link-usuarios">Usuarios</a></li>
                 <li><a href="../empleados/registrar_empleado.php" class="navbar-link" id="link-empleados">Empleados</a></li>
                 <li><a href="../empleados/tabla2.php" class="navbar-link" id="link-tabla">Gestión de empleados</a></li>
+                <li><a href="../empleados/bajas.php" class="navbar-link">Empleados dados de baja</a></li>
             </ul>
         </div>
         <a href="../sesiones/logout.php" class="logout-link" id="logout-link">Cerrar sesión</a>
