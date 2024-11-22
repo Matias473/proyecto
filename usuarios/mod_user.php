@@ -85,6 +85,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select><br>
 
         <button type="submit">Guardar Cambios</button>
+        <br>
+        <p><a href="../pagina/inicio.php">volver al inicio</a></p>
     </form>
 </body>
 

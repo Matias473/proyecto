@@ -85,5 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_email'])) {
             </table>
         </div>
     </div>
+    <p><a href="../pagina/inicio.php">volver al inicio</a></p>
 </body>
 </html>

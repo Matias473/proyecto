@@ -44,18 +44,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Sesión</title>
+    <link rel="stylesheet" href="../estilos.css">
 </head>
-<body>
-    <h1>BIENVENIDO AL SISTEMA</h1>
-    <form method="post">
-        <p>Usuario: <input type="text" name="usuario" required></p>
-        <p>Contraseña: <input type="password" name="contraseña" required></p> 
-        <input type="submit" value="Iniciar">
-    </form>
-    <h2>
-        <?php
-            echo $mensaje;
-        ?>
-    </h2>
+<body class="general-body">
+    <div class="container" id="login-container">
+        <h1 class="title" id="main-title">BIENVENIDO AL SISTEMA</h1>
+        <form method="post" class="form" id="login-form">
+            <p class="form-group">
+                <label for="usuario" class="form-label">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" class="form-input" required>
+            </p>
+            <p class="form-group">
+                <label for="contraseña" class="form-label">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" class="form-input" required>
+            </p> 
+            <input type="submit" value="Iniciar" class="form-button" id="submit-button">
+        </form>
+        <h2 class="error-message" id="error-message">
+            <?php
+                echo $mensaje ?? '';
+            ?>
+        </h2>
+    </div>
 </body>
 </html>

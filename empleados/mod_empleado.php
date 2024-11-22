@@ -83,87 +83,134 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Empleado</title>
+    <link rel="stylesheet" href="../estilos.css">
     <script>
-    window.onload = function() {
-        <?php if (!empty($mensaje)) { ?>
-            alert("<?php echo $mensaje; ?>");
-            window.location.href = "tabla2.php";
-        <?php } ?>
-    };
+        window.onload = function() {
+            <?php if (!empty($mensaje)) { ?>
+                alert("<?php echo $mensaje; ?>");
+                window.location.href = "tabla2.php";
+            <?php } ?>
+        };
     </script>
-
-
 </head>
 
 <body>
-    <h1>Modificar Empleado</h1>
-    <form action="mod_empleado.php" method="POST">
-        <!-- Campos del formulario -->
-        <label for="CURP">CURP:</label>
-        <input type="text" name="CURP" value="<?php echo $empleado['CURP'] ?? ''; ?>" readonly><br>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-left" id="navbar-left">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="../pagina/inicio.php" class="navbar-link" id="link-inicio">Inicio</a></li>
+                <li><a href="../usuarios/registro_user.php" class="navbar-link" id="link-usuarios">Usuarios</a></li>
+                <li><a href="../empleados/registrar_empleado.php" class="navbar-link" id="link-empleados">Registrar</a></li>
+                <li><a href="../empleados/tabla2.php" class="navbar-link" id="link-tabla">Gestión de empleados</a></li>
+            </ul>
+        </div>
+        <a href="../sesiones/logout.php" class="logout-link" id="logout-link">Cerrar sesión</a>
+    </nav>
 
-        <label for="RFC">RFC:</label>
-        <input type="text" name="RFC" value="<?php echo $empleado['RFC'] ?? ''; ?>" readonly><br>
+    <table id="registro-form-container">
+        <tr>
+            <td colspan="2">
+                <h1 id="registro-form-title">Modificar Empleado</h1>
+            </td>
+        </tr>
+        <tr id="registro-form-content">
+            <td colspan="2">
+                <form action="mod_empleado.php" method="POST">
+                    <!-- CURP -->
+                    <label class="registro-form-label" for="CURP">CURP:</label>
+                    <input class="registro-form-input" type="text" name="CURP" value="<?php echo $empleado['CURP'] ?? ''; ?>" readonly><br><br>
 
-        <label for="titulo">Título:</label>
-        <input type="text" name="titulo" value="<?php echo $empleado['titulo'] ?? ''; ?>"><br>
+                    <!-- RFC -->
+                    <label class="registro-form-label" for="RFC">RFC:</label>
+                    <input class="registro-form-input" type="text" name="RFC" value="<?php echo $empleado['RFC'] ?? ''; ?>" readonly><br><br>
 
-        <label for="nombres">Nombres:</label>
-        <input type="text" name="nombres" value="<?php echo $empleado['nombres'] ?? ''; ?>" required><br>
+                    <!-- Título -->
+                    <label class="registro-form-label" for="titulo">Título:</label>
+                    <input class="registro-form-input" type="text" name="titulo" value="<?php echo $empleado['titulo'] ?? ''; ?>"><br><br>
 
-        <label for="apellido_p">Apellido Paterno:</label>
-        <input type="text" name="apellido_p" value="<?php echo $empleado['apellido_p'] ?? ''; ?>" required><br>
+                    <!-- Nombres -->
+                    <label class="registro-form-label" for="nombres">Nombres:</label>
+                    <input class="registro-form-input" type="text" name="nombres" value="<?php echo $empleado['nombres'] ?? ''; ?>" required><br><br>
 
-        <label for="apellido_m">Apellido Materno:</label>
-        <input type="text" name="apellido_m" value="<?php echo $empleado['apellido_m'] ?? ''; ?>" required><br>
+                    <!-- Apellidos -->
+                    <label class="registro-form-label" for="apellido_p">Apellido Paterno:</label>
+                    <input class="registro-form-input" type="text" name="apellido_p" value="<?php echo $empleado['apellido_p'] ?? ''; ?>" required><br><br>
 
-        <label for="sexo">Sexo:</label>
-        <input type="text" name="sexo" value="<?php echo $empleado['sexo'] ?? ''; ?>" required><br>
+                    <label class="registro-form-label" for="apellido_m">Apellido Materno:</label>
+                    <input class="registro-form-input" type="text" name="apellido_m" value="<?php echo $empleado['apellido_m'] ?? ''; ?>"><br><br>
 
-        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-        <input type="date" name="fecha_nacimiento" value="<?php echo $empleado['fecha_nacimiento'] ?? ''; ?>" required><br>
+                    <!-- Sexo -->
+                    <label class="registro-form-label" for="sexo">Sexo:</label>
+                    <input class="registro-form-radio" type="radio" name="sexo" value="M" <?php echo ($empleado['sexo'] == 'M') ? 'checked' : ''; ?>> Masculino
+                    <input class="registro-form-radio" type="radio" name="sexo" value="F" <?php echo ($empleado['sexo'] == 'F') ? 'checked' : ''; ?>> Femenino<br><br>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" value="<?php echo $empleado['email'] ?? ''; ?>" required><br>
+                    <!-- Fecha de Nacimiento -->
+                    <label class="registro-form-label" for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                    <input class="registro-form-input" type="date" name="fecha_nacimiento" value="<?php echo $empleado['fecha_nacimiento'] ?? ''; ?>"><br><br>
 
-        <label for="telefono_movil">Teléfono Móvil:</label>
-        <input type="text" name="telefono_movil" value="<?php echo $empleado['telefono_movil'] ?? ''; ?>"><br>
+                    <!-- Email -->
+                    <label class="registro-form-label" for="email">Email:</label>
+                    <input class="registro-form-input" type="email" name="email" value="<?php echo $empleado['email'] ?? ''; ?>" required><br><br>
 
-        <label for="telefono_fijo">Teléfono Fijo:</label>
-        <input type="text" name="telefono_fijo" value="<?php echo $empleado['telefono_fijo'] ?? ''; ?>"><br>
+                    <!-- Teléfonos -->
+                    <label class="registro-form-label" for="telefono_movil">Teléfono Móvil:</label>
+                    <input class="registro-form-input" type="text" name="telefono_movil" value="<?php echo $empleado['telefono_movil'] ?? ''; ?>" required><br><br>
 
-        <label for="estado_civil">Estado Civil:</label>
-        <input type="text" name="estado_civil" value="<?php echo $empleado['estado_civil'] ?? ''; ?>"><br>
+                    <label class="registro-form-label" for="telefono_fijo">Teléfono Fijo:</label>
+                    <input class="registro-form-input" type="text" name="telefono_fijo" value="<?php echo $empleado['telefono_fijo'] ?? ''; ?>"><br><br>
 
-        <label for="CP">Código Postal:</label>
-        <input type="text" name="CP" value="<?php echo $empleado['CP'] ?? ''; ?>"><br>
+                    <!-- Dirección -->
+                    <label class="registro-form-label" for="cp">Código Postal:</label>
+                    <input class="registro-form-input" type="text" name="CP" value="<?php echo $empleado['CP'] ?? ''; ?>" required><br><br>
 
-        <label for="col_fracc">Colonia/Fraccionamiento:</label>
-        <input type="text" name="col_fracc" value="<?php echo $empleado['col_fracc'] ?? ''; ?>"><br>
+                    <label class="registro-form-label" for="col_fracc">Colonia/Fraccionamiento:</label>
+                    <input class="registro-form-input" type="text" name="col_fracc" value="<?php echo $empleado['col_fracc'] ?? ''; ?>" required><br><br>
 
-        <label for="calle">Calle:</label>
-        <input type="text" name="calle" value="<?php echo $empleado['calle'] ?? ''; ?>"><br>
+                    <label class="registro-form-label" for="calle">Calle:</label>
+                    <input class="registro-form-input" type="text" name="calle" value="<?php echo $empleado['calle'] ?? ''; ?>"><br><br>
 
-        <label for="numero">Número:</label>
-        <input type="text" name="numero" value="<?php echo $empleado['numero'] ?? ''; ?>"><br>
+                    <label class="registro-form-label" for="numero">Número:</label>
+                    <input class="registro-form-input" type="text" name="numero" value="<?php echo $empleado['numero'] ?? ''; ?>"><br><br>
 
-        <label for="fecha_contrato">Fecha de Contrato:</label>
-        <input type="date" name="fecha_contrato" value="<?php echo $empleado['fecha_contrato'] ?? ''; ?>" required><br>
+                                        <!-- Estado Civil -->
+                                        <label class="registro-form-label" for="estado_civil">Estado Civil:</label>
+                    <select class="registro-form-select" name="estado_civil" required>
+                        <option value="soltero" <?php echo ($empleado['estado_civil'] == 'soltero') ? 'selected' : ''; ?>>Soltero</option>
+                        <option value="casado" <?php echo ($empleado['estado_civil'] == 'casado') ? 'selected' : ''; ?>>Casado</option>
+                        <option value="viudo" <?php echo ($empleado['estado_civil'] == 'viudo') ? 'selected' : ''; ?>>Viudo</option>
+                    </select><br><br>
 
-        <label for="puesto">Puesto:</label>
-        <input type="text" name="puesto" value="<?php echo $empleado['puesto'] ?? ''; ?>" required><br>
+                    <!-- Fecha de Contrato -->
+                    <label class="registro-form-label" for="fecha_contrato">Fecha de Contrato:</label>
+                    <input class="registro-form-input" type="date" name="fecha_contrato" value="<?php echo $empleado['fecha_contrato'] ?? ''; ?>" required><br><br>
 
-        <label for="turno">Turno:</label>
-        <input type="text" name="turno" value="<?php echo $empleado['turno'] ?? ''; ?>" required><br>
+                    <!-- Puesto -->
+                    <label class="registro-form-label" for="puesto">Puesto:</label>
+                    <select class="registro-form-select" name="puesto">
+                        <option value="docente" <?php echo ($empleado['puesto'] == 'docente') ? 'selected' : ''; ?>>Docente</option>
+                        <option value="administrativo" <?php echo ($empleado['puesto'] == 'administrativo') ? 'selected' : ''; ?>>Administrativo</option>
+                        <option value="secretaria" <?php echo ($empleado['puesto'] == 'secretaria') ? 'selected' : ''; ?>>Secretaria</option>
+                    </select><br><br>
 
-        <label for="horario_entrada">Horario Entrada:</label>
-        <input type="time" name="horario_entrada" value="<?php echo $empleado['horario_entrada'] ?? ''; ?>" required><br>
+                    <!-- Turno -->
+                    <label class="registro-form-label" for="turno">Turno:</label>
+                    <input class="registro-form-input" type="text" name="turno" value="<?php echo $empleado['turno'] ?? ''; ?>" required><br><br>
 
-        <label for="horario_salida">Horario Salida:</label>
-        <input type="time" name="horario_salida" value="<?php echo $empleado['horario_salida'] ?? ''; ?>" required><br>
+                    <!-- Horario de Entrada -->
+                    <label class="registro-form-label" for="horario_entrada">Horario de Entrada:</label>
+                    <input class="registro-form-input" type="time" name="horario_entrada" value="<?php echo $empleado['horario_entrada'] ?? ''; ?>" required><br><br>
 
-        <button type="submit">Guardar Cambios</button>
-    </form>
+                    <!-- Horario de Salida -->
+                    <label class="registro-form-label" for="horario_salida">Horario de Salida:</label>
+                    <input class="registro-form-input" type="time" name="horario_salida" value="<?php echo $empleado['horario_salida'] ?? ''; ?>" required><br><br>
+
+                    <!-- Botón de Enviar -->
+                    <button class="registro-form-button" type="submit">Guardar cambios</button>
+                </form>
+            </td>
+        </tr>
+    </table>
 </body>
-
 </html>
+

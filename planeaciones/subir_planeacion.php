@@ -18,14 +18,14 @@
               if ($archivo_upload)
               {
                 
-                require_once("conectar.php");
+                require_once("../conexion/conexion.php");
                 $consulta = "INSERT INTO planeaciones 
                 (subido_por, docente_encargado, nombre_materia, grado, periodo, fecha_creacion, hora_creacion, archivo, aprobacion, aprobado_por, estatus, nom_arch, size_arch, ruta, extencion) 
                 VALUES 
                 (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$nom_file', '$size_arch', '$ruta_file', '$extencion_arch')";
             
                 //ejecutar la consulta en mysqli procedimental
-                $resultado=$con->query($consulta);
+                $resultado=$conn->query($consulta);
                 
 
                 //Enviar al control al archivo visualizar 
@@ -64,8 +64,21 @@
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Subir Planeacion</title>
+        <link rel="stylesheet" href="../estilos.css">
       </head>
       <body>
+        <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="../pagina/inicio.php" class="navbar-link">Inicio</a></li>
+                <li><a href="../planeaciones/planeaciones.php" class="navbar-link">Planeaciones</a></li>
+                <li><a href="../constancias/constancias.php" class="navbar-link">Constancias</a></li>
+            </ul>
+        </div>
+        <a href="../sesiones/logout.php" class="logout-link">Cerrar sesión</a>
+    </nav>
         <h3 align="center"> Subir Planeacion</h3>
         <hr>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">

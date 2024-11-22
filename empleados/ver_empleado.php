@@ -26,74 +26,88 @@ $empleado = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Empleado</title>
+    <link rel="stylesheet" href="../estilos.css"> 
 </head>
 <body>
-    <div>
+<nav class="navbar" id="navbar">
+        <div class="navbar-left" id="navbar-left">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="../pagina/inicio.php" class="navbar-link" id="link-inicio">Inicio</a></li>
+                <li><a href="../sesiones/registro_user.php" class="navbar-link" id="link-usuarios">Usuarios</a></li>
+                <li><a href="../empleados/registrar_empleado.php" class="navbar-link" id="link-empleados">Empleados</a></li>
+                <li><a href="../empleados/tabla2.php" class="navbar-link" id="link-tabla">gestión de empleados</a></li>
+            </ul>
+        </div>
+        <a href="../sesiones/logout.php" class="logout-link" id="logout-link">Cerrar sesión</a>
+    </nav>
+    <div class="ver-container">
         <?php if ($empleado): ?>
-            <div>
+            <div class="ver-content">
                 <!-- Encabezado -->
-                <div>
-                    <h1>
+                <div class="ver-header">
+                    <h1 class="ver-title">
                         <?php echo htmlspecialchars($empleado['nombres'] . ' ' . 
                                                   $empleado['apellido_p'] . ' ' . 
                                                   $empleado['apellido_m']); ?>
                     </h1>
-                    <span>
+                    <span class="ver-job-title">
                         <?php echo htmlspecialchars($empleado['puesto']); ?>
                     </span>
                 </div>
 
-                <div>
+                <!-- Secciones de Información -->
+                <div class="ver-sections">
                     <!-- Información Personal -->
-                    <div>
-                        <h2>Información Personal</h2>
-                        <div>
+                    <div class="ver-section">
+                        <h2 class="ver-section-title">Información Personal</h2>
+                        <div class="ver-details">
                             <p>
-                                <span>CURP:</span> 
+                                <span class="ver-label">CURP:</span> 
                                 <?php echo htmlspecialchars($empleado['CURP']); ?>
                             </p>
                             <p>
-                                <span>RFC:</span> 
+                                <span class="ver-label">RFC:</span> 
                                 <?php echo htmlspecialchars($empleado['RFC']); ?>
                             </p>
                             <p>
-                                <span>Fecha de Nacimiento:</span> 
+                                <span class="ver-label">Fecha de Nacimiento:</span> 
                                 <?php echo date('d/m/Y', strtotime($empleado['fecha_nacimiento'])); ?>
                             </p>
                             <p>
-                                <span>Sexo:</span> 
+                                <span class="ver-label">Sexo:</span> 
                                 <?php echo $empleado['sexo'] === 'M' ? 'Masculino' : 'Femenino'; ?>
                             </p>
                         </div>
                     </div>
 
                     <!-- Información de Contacto -->
-                    <div>
-                        <h2>Información de Contacto</h2>
-                        <div>
+                    <div class="ver-section">
+                        <h2 class="ver-section-title">Información de Contacto</h2>
+                        <div class="ver-details">
                             <p>
-                                <span>Email:</span>
-                                <a href="mailto:<?php echo htmlspecialchars($empleado['email']); ?>">
+                                <span class="ver-label">Email:</span>
+                                <a href="mailto:<?php echo htmlspecialchars($empleado['email']); ?>" class="ver-link">
                                     <?php echo htmlspecialchars($empleado['email']); ?>
                                 </a>
                             </p>
                             <p>
-                                <span>Teléfono:</span> 
+                                <span class="ver-label">Teléfono:</span> 
                                 <?php echo htmlspecialchars($empleado['telefono_movil']); ?>
                             </p>
                         </div>
                     </div>
 
                     <!-- Información Laboral -->
-                    <div>
-                        <h2>Información Laboral</h2>
-                        <div>
+                    <div class="ver-section">
+                        <h2 class="ver-section-title">Información Laboral</h2>
+                        <div class="ver-details">
                             <p>
-                                <span>Turno:</span> 
+                                <span class="ver-label">Turno:</span> 
                                 <?php echo htmlspecialchars($empleado['turno']); ?>
                             </p>
                             <p>
-                                <span>Horario:</span> 
+                                <span class="ver-label">Horario:</span> 
                                 <?php echo htmlspecialchars($empleado['horario_entrada'] . ' - ' . 
                                                           $empleado['horario_salida']); ?>
                             </p>
@@ -102,20 +116,20 @@ $empleado = $result->fetch_assoc();
                 </div>
 
                 <!-- Botones de Acción -->
-                <div>
-                    <a href="tabla2.php">
+                <div class="ver-actions">
+                    <a href="tabla2.php" class="ver-button ver-button-back">
                         Regresar a la Lista
                     </a>
-                    <a href="editar_empleado.php?curp=<?php echo urlencode($empleado['CURP']); ?>">
-                        Editar Empleado
+                    <a href="mod_empleado.php?curp=<?php echo urlencode($empleado['CURP']); ?>" class="ver-button ver-button-edit">
+                        Modificar Empleado
                     </a>
                 </div>
             </div>
         <?php else: ?>
-            <div>
+            <div class="ver-error">
                 <p>No se encontró información del empleado.</p>
                 <p>
-                    <a href="tabla2.php">
+                    <a href="tabla2.php" class="ver-button ver-button-back">
                         Volver a la lista de empleados
                     </a>
                 </p>

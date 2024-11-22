@@ -1,11 +1,14 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+// Verificar si la sesión ya está iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Iniciar sesión si no se ha hecho
 }
 
-
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
+// Comprobar si el usuario no está autenticado
+if (empty($_SESSION['usuario'])) { 
+    // Redirigir al login.php si no hay un usuario en la sesión
+    header("Location: ../sesiones/login.php");
     exit();
 }
+
 ?>
