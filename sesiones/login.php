@@ -4,6 +4,11 @@ session_start(); // Mantener la sesión activa
 $acceso = "";
 $mensaje = "";
 
+// Verificar si hay un mensaje en la URL
+if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'sesion_expirada') {
+    $mensaje = "Tu sesión ha expirado por inactividad. Por favor, inicia sesión nuevamente.";
+}
+
 // Manejo de peticiones web
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     $user = $_POST['usuario'];
@@ -37,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
