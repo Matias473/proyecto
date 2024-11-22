@@ -22,10 +22,9 @@ $privilegio = $_SESSION['privilegio']; // Ya está asegurado que existe por la v
                 <!-- Barra de navegación solo para administradores -->
                 <?php if ($privilegio == 'admin'): ?>
                     <li><a href="../pagina/inicio.php" class="navbar-link">Inicio</a></li>
-                    <li><a href="../usuarios/registro_user.php" class="navbar-link">Usuarios</a></li>
-                    <li><a href="../empleados/registrar_empleado.php" class="navbar-link">Empleados</a></li>
                     <li><a href="../empleados/tabla2.php" class="navbar-link">Gestión de empleados</a></li>
                     <li><a href="../usuarios/gestion_user.php" class="navbar-link">Gestión de usuarios</a></li>
+                    <li><a href="../empleados/bajas.php" class="navbar-link">Empleados dados de baja</a></li>
                 <?php endif; ?>
 
                 <!-- Barra de navegación para docentes -->
@@ -60,14 +59,6 @@ $privilegio = $_SESSION['privilegio']; // Ya está asegurado que existe por la v
                     <td>Acceso a contenido exclusivo para administradores.</td>
                 </tr>
                 <tr>
-                    <td><a href="../sesiones/registro_user.php" class="link">Nuevo usuario</a></td>
-                    <td>Registrar un nuevo usuario en el sistema.</td>
-                </tr>
-                <tr>
-                    <td><a href="../empleados/registrar_empleado.php" class="link">Nuevo empleado</a></td>
-                    <td>Registrar un nuevo empleado en el sistema.</td>
-                </tr>
-                <tr>
                     <td><a href="../empleados/tabla2.php" class="link">Gestionar empleados</a></td>
                     <td>Visualizar la tabla de empleados.</td>
                 </tr>
@@ -76,8 +67,8 @@ $privilegio = $_SESSION['privilegio']; // Ya está asegurado que existe por la v
                     <td>Visualizar la tabla de usuarios.</td>
                 </tr>
                 <tr>
-                    <td><a href="../planeaciones/subir_planeacion.php" class="link">Planeaciones</a></td>
-                    <td>Visualizar la tabla de usuarios.</td>
+                    <td><a href="../empleados/bajas.php" class="link">Gestionar empleados anteriores</a></td>
+                    <td>Visualizar los empleados anteriorees</td>
                 </tr>
             <?php elseif ($privilegio == 'docente'): ?>
                 <tr>

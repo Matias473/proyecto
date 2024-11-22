@@ -10,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("../conexion/conexion.php");
 
     // Obtener los datos del formulario
-    $curp_em = strtoupper($_POST['CURP']);  //esto es para que se vuelvan mayusculas las letras 
-    $rfc_em = strtoupper($_POST['RFC']);
+    $curp_em = $_POST['CURP'];
+    $rfc_em = $_POST['RFC'];
     $titulo_em = $_POST['titulo'];
     $nombres_em = $_POST['nombres'];
     $apellido_p_em = $_POST['apellido_p'];
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $turno_em = $_POST['turno'];
     $horario_entrada_em = $_POST['horario_entrada'];
     $horario_salida_em = $_POST['horario_salida'];
-    $estatus_em = 1; // por default ya que es cuando el usuario esta activo
+    $estatus_em = 1; // Asumiendo que el valor de estatus es siempre 1
 
     // Verificar si la CURP o el RFC ya existen
     $verificar_sql = "SELECT COUNT(*) as total FROM empleados WHERE CURP = '$curp_em' OR RFC = '$rfc_em'";
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button class="menu-toggle" id="menu-toggle">☰</button>
             <ul class="navbar-menu" id="navbar-menu">
                 <li><a href="../pagina/inicio.php" class="navbar-link" id="link-inicio">Inicio</a></li>
-                <li><a href="../usuarios/registro_user.php" class="navbar-link" id="link-usuarios">Usuarios</a></li>
+                <li><a href="../usuarios/gestion_user.php" class="navbar-link" id="link-usuarios">Usuarios</a></li>
                 <li><a href="../empleados/registrar_empleado.php" class="navbar-link" id="link-empleados">Registrar</a></li>
                 <li><a href="../empleados/tabla2.php" class="navbar-link" id="link-tabla">Gestión de empleados</a></li>
             </ul>

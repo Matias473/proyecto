@@ -620,7 +620,7 @@ input[required] {
 
 /* Contenedor principal */
 .ver-container {
-    width: 25%;
+    width: 30%;
     margin: 50px auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -721,4 +721,458 @@ input[required] {
     color: #e74c3c;
 }
 /* ----------- DISEÑO CONSTANCIAS ----------- */
+
+/* ----------- BARRA DE BUSQUEDA -----------*/
+
+/* Contenedor general del botón y la barra de búsqueda */
+.tabla2-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaciado entre el botón y la barra */
+    margin-bottom: 1rem;
+}
+
+/* Botón de añadir empleado */
+.tabla2-add-link {
+    padding: 0.5rem 1rem;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.tabla2-add-link:hover {
+    background-color: #388e3c;
+}
+
+/* Barra de búsqueda */
+.busqueda-form {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaciado entre la barra de búsqueda y el botón de enviar */
+}
+
+.busqueda-input {
+    width: 250px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.busqueda-input:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+.busqueda-button {
+    padding: 0.5rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.busqueda-button:hover {
+    background-color: #388e3c;
+}
+
+.busqueda-button i {
+    font-size: 1rem;
+}
+/* ----------- ESTILOS SUBIR PLANEACION -----------*/
+/* Contenedor principal */
+.plan-container {
+    width: 40%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.plan-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.plan-title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Tabla */
+.plan-table {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.plan-table td {
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+.plan-table input[type="file"] {
+    width: 100%;
+}
+
+/* Botones */
+.plan-button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    margin: 5px;
+    background-color: #4caf50;
+    border: none;
+    cursor: pointer;
+}
+
+.plan-button:hover {
+    background-color: #388e3c;
+}
+
+.plan-reset {
+    background-color: #e74c3c;
+}
+
+.plan-reset:hover {
+    background-color: #c0392b;
+}
+
+/* Enlace */
+.plan-link {
+    color: #4caf50;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.plan-link:hover {
+    text-decoration: underline;
+    color: #388e3c;
+}
+/* ----------- ESTILOS VER PLANEACION -----------*/
+/* Contenedor principal */
+.verplan-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+.verplan-title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Tabla */
+.verplan-table-container {
+    overflow-x: auto;
+}
+
+.verplan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1em;
+}
+
+.verplan-header-row th {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.verplan-row td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.verplan-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Enlaces */
+.verplan-link, .verplan-action-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.verplan-link:hover, .verplan-action-link:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+.verplan-button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    cursor: pointer;
+}
+
+.verplan-button:hover {
+    background-color: #218838;
+}
+/* ----------- ESTILOS GESTION USER ----------- */
+.gesuser {
+    width: 60%; /* Ajustar el ancho */
+    margin: 50px auto; /* Centrado horizontal */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gesuser h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.gesuser a {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.gesuser a:hover {
+    background-color: #218838;
+}
+
+.gesuser table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.gesuser th, .gesuser td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.gesuser th {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+.gesuser td {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.gesuser tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.gesuser tbody tr:hover {
+    background-color: #e2e6ea;
+    cursor: pointer;
+}
+
+.gesuser .tabla2-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gesuser .tabla2-actions a, .gesuser .tabla2-actions button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 1.2em;
+}
+
+.gesuser .tabla2-actions a i, .gesuser .tabla2-actions button i {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.gesuser .tabla2-actions a:hover i, .gesuser .tabla2-actions button:hover i {
+    color: #0056b3;
+}
+.gesuser .d-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 14.5px 28px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.gesuser .d-button:hover {
+    background-color: #c0392b;
+}
+/* ----------- ESTILOS MOD USER ----------- */
+/* Contenedor principal centrado */
+.moduser {
+    width: 27%; /* Ancho ajustado del formulario */
+    margin: 100px auto; /* Centrado vertical y horizontal */
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el título principal del formulario */
+.user-form-title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el formulario */
+.user-form {
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+
+/* Estilo de las etiquetas del formulario */
+.user-form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+/* Estilo para los campos de entrada */
+.user-input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo para los botones */
+.user-submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.user-submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para los enlaces de la barra de navegación */
+.user-navbar-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.user-navbar-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para los inputs requeridos */
+input[required] {
+    border: 1px solid #444;
+}
+
+/* Estilo para los campos de formulario con un ancho auto */
+.user-input-field[maxlength] {
+    width: auto;
+}
+
+/* Estilo de la barra de navegación */
+.user-navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.user-navbar .user-menu-toggle {
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.user-navbar .user-navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.user-navbar .user-navbar-menu li {
+    margin: 0 10px;
+}
+
+.user-navbar .user-navbar-menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+.user-navbar .user-navbar-menu li a:hover {
+    text-decoration: underline;
+}
+
+.user-logout-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    border-radius: 5px;
+}
+
+.user-logout-link:hover {
+    background-color: #c0392b;
+}
 

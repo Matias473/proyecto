@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="../estilos.css">
     <script>
         window.onload = function() {
             <?php if (!empty($mensaje)) { ?>
@@ -65,29 +66,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <h1>Modificar Usuario</h1>
-    <form action="mod_user.php" method="POST">
-        <!-- Campos del formulario -->
-        <label for="email">Email:</label>
-        <input type="email" name="email" value="<?php echo $usuario['email'] ?? ''; ?>" readonly><br>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-left" id="navbar-left">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="../pagina/inicio.php" class="navbar-link">Inicio</a></li>
+                <li><a href="../empleados/tabla2.php" class="navbar-link">Gestión de empleados</a></li>
+                <li><a href="../usuarios/gestion_user.php" class="navbar-link">Gestión de usuarios</a></li>
+            </ul>
+        </div>
+        <a href="../sesiones/logout.php" class="logout-link" id="logout-link">Cerrar sesión</a>
+    </nav>
 
-        <!-- Campo de contraseña -->
-        <label for="pass">Nueva Contraseña:</label>
-        <input type="text" name="pass" placeholder="Dejar en blanco para no cambiar"><br>
+    <div class="user-form-container moduser">
+        <h1 class="user-form-title">Modificar Usuario</h1>
+        <form class="user-form" action="mod_user.php" method="POST">
+            <!-- Campos del formulario -->
+            <label for="email" class="user-form-label">Email:</label>
+            <input type="email" name="email" value="<?php echo $usuario['email'] ?? ''; ?>" class="user-input-field" readonly><br>
 
-        <!-- Campo de privilegio con opciones -->
-        <label for="privilegio">Privilegio:</label>
-        <select name="privilegio" id="privilegio">
-            <option value="docente" <?php echo ($usuario['privilegio'] == 'docente' ? 'selected' : ''); ?>>Docente</option>
-            <option value="secretaria" <?php echo ($usuario['privilegio'] == 'secretaria' ? 'selected' : ''); ?>>Secretaria</option>
-            <option value="directivo" <?php echo ($usuario['privilegio'] == 'directivo' ? 'selected' : ''); ?>>Directivo</option>
-            <option value="admin" <?php echo ($usuario['privilegio'] == 'admin' ? 'selected' : ''); ?>>Admin</option>
-        </select><br>
+            <!-- Campo de contraseña -->
+            <label for="pass" class="user-form-label">Nueva Contraseña:</label>
+            <input type="text" name="pass" placeholder="Dejar en blanco para no cambiar" class="user-input-field"><br>
 
-        <button type="submit">Guardar Cambios</button>
-        <br>
-        <p><a href="../pagina/inicio.php">volver al inicio</a></p>
-    </form>
+            <!-- Campo de privilegio con opciones -->
+            <label for="privilegio" class="user-form-label">Privilegio:</label>
+            <select name="privilegio" id="privilegio" class="user-input-field">
+                <option value="docente" <?php echo ($usuario['privilegio'] == 'docente' ? 'selected' : ''); ?>>Docente</option>
+                <option value="secretaria" <?php echo ($usuario['privilegio'] == 'secretaria' ? 'selected' : ''); ?>>Secretaria</option>
+                <option value="directivo" <?php echo ($usuario['privilegio'] == 'directivo' ? 'selected' : ''); ?>>Directivo</option>
+                <option value="admin" <?php echo ($usuario['privilegio'] == 'admin' ? 'selected' : ''); ?>>Admin</option>
+            </select><br>
+
+            <button type="submit" class="user-submit-button">Guardar Cambios</button>
+            <br>
+            <p><a href="../pagina/inicio.php" class="user-navbar-link">volver al inicio</a></p>
+        </form>
+    </div>
 </body>
 
 </html>

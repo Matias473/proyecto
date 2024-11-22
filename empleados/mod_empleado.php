@@ -99,10 +99,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="navbar-left" id="navbar-left">
             <button class="menu-toggle" id="menu-toggle">☰</button>
             <ul class="navbar-menu" id="navbar-menu">
-                <li><a href="../pagina/inicio.php" class="navbar-link" id="link-inicio">Inicio</a></li>
-                <li><a href="../usuarios/registro_user.php" class="navbar-link" id="link-usuarios">Usuarios</a></li>
-                <li><a href="../empleados/registrar_empleado.php" class="navbar-link" id="link-empleados">Registrar</a></li>
-                <li><a href="../empleados/tabla2.php" class="navbar-link" id="link-tabla">Gestión de empleados</a></li>
+                <li><a href="../pagina/inicio.php" class="navbar-link">Inicio</a></li>
+                <li><a href="../empleados/tabla2.php" class="navbar-link">Gestión de empleados</a></li>
+                <li><a href="../usuarios/gestion_user.php" class="navbar-link">Gestión de usuarios</a></li>
             </ul>
         </div>
         <a href="../sesiones/logout.php" class="logout-link" id="logout-link">Cerrar sesión</a>
@@ -142,8 +141,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <!-- Sexo -->
                     <label class="registro-form-label" for="sexo">Sexo:</label>
-                    <input class="registro-form-radio" type="radio" name="sexo" value="M" <?php echo ($empleado['sexo'] == 'M') ? 'checked' : ''; ?>> Masculino
-                    <input class="registro-form-radio" type="radio" name="sexo" value="F" <?php echo ($empleado['sexo'] == 'F') ? 'checked' : ''; ?>> Femenino<br><br>
+                    <input class="registro-form-radio" type="radio" name="sexo" value="M"
+                        <?php echo (isset($empleado['sexo']) && $empleado['sexo'] == 'M') ? 'checked' : ''; ?>> Masculino
+                    <input class="registro-form-radio" type="radio" name="sexo" value="F"
+                        <?php echo (isset($empleado['sexo']) && $empleado['sexo'] == 'F') ? 'checked' : ''; ?>> Femenino<br><br>
 
                     <!-- Fecha de Nacimiento -->
                     <label class="registro-form-label" for="fecha_nacimiento">Fecha de Nacimiento:</label>
@@ -173,8 +174,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="registro-form-label" for="numero">Número:</label>
                     <input class="registro-form-input" type="text" name="numero" value="<?php echo $empleado['numero'] ?? ''; ?>"><br><br>
 
-                                        <!-- Estado Civil -->
-                                        <label class="registro-form-label" for="estado_civil">Estado Civil:</label>
+                    <!-- Estado Civil -->
+                    <label class="registro-form-label" for="estado_civil">Estado Civil:</label>
                     <select class="registro-form-select" name="estado_civil" required>
                         <option value="soltero" <?php echo ($empleado['estado_civil'] == 'soltero') ? 'selected' : ''; ?>>Soltero</option>
                         <option value="casado" <?php echo ($empleado['estado_civil'] == 'casado') ? 'selected' : ''; ?>>Casado</option>
@@ -212,5 +213,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </tr>
     </table>
 </body>
-</html>
 
+</html>

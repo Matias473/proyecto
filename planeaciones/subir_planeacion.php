@@ -26,7 +26,7 @@
             
                 //ejecutar la consulta en mysqli procedimental
                 $resultado=$conn->query($consulta);
-                
+                 
 
                 //Enviar al control al archivo visualizar 
                 if($resultado) 
@@ -56,50 +56,55 @@
      }  
 
 }
-       
-?> 
-    <!DOCTYPE html>
-    <html>  
-      <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Subir Planeacion</title>
-        <link rel="stylesheet" href="../estilos.css">
-      </head>
-      <body>
-        <!-- Barra de navegación -->
-    <nav class="navbar">
-        <div class="navbar-left">
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-            <ul class="navbar-menu" id="navbar-menu">
-                <li><a href="../pagina/inicio.php" class="navbar-link">Inicio</a></li>
-                <li><a href="../planeaciones/planeaciones.php" class="navbar-link">Planeaciones</a></li>
-                <li><a href="../constancias/constancias.php" class="navbar-link">Constancias</a></li>
-            </ul>
-        </div>
-        <a href="../sesiones/logout.php" class="logout-link">Cerrar sesión</a>
-    </nav>
-        <h3 align="center"> Subir Planeacion</h3>
-        <hr>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
-          <table align="center">
-            <tr>
-              <td>Seleccionar Archivo</td>
-              <td>
-                <input name="archivo" type="file" size="70" maxlength="70">  
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><input type="submit" name="enviar" value="Subir">
-                  <input type="reset" name="borrar" value="Cancelar">
-              </td>
-            </tr>
-          </table>
-            <input type="hidden" name="us" value="<? echo $us; ?>">
-            <input type="hidden" name="ps" value="<? echo $ps; ?>">
-        </form>
-        <hr>  
-        <a href='ver_planeacion.php'><h3 align=center >Ver Planeaciones</h3></a>
-      </body>
-   </html> 
+?>
+<!DOCTYPE html>
+<html>  
+<head>
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subir Planeacion</title>
+  <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="../pagina/inicio.php" class="navbar-link">Inicio</a></li>
+        <li><a href="../planeaciones/planeaciones.php" class="navbar-link">Planeaciones</a></li>
+        <li><a href="../constancias/constancias.php" class="navbar-link">Constancias</a></li>
+      </ul>
+    </div>
+    <a href="../sesiones/logout.php" class="logout-link">Cerrar sesión</a>
+  </nav>
+  
+  <div class="plan-container">
+    <div class="plan-header">
+      <h3 class="plan-title">Subir Planeacion</h3>
+    </div>
+    <hr>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+      <table class="plan-table">
+        <tr>
+          <td>Seleccionar Archivo</td>
+          <td>
+            <input name="archivo" type="file" class="file-input">  
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="submit" name="enviar" class="plan-button">Subir</button>
+            <button type="reset" name="borrar" class="plan-button plan-reset">Cancelar</button>
+          </td>
+        </tr>
+      </table>
+      <input type="hidden" name="us" value="<?php echo $us; ?>">
+      <input type="hidden" name="ps" value="<?php echo $ps; ?>">
+    </form>
+    <hr>
+    <a href="ver_planeacion.php" class="plan-link">Ver Planeaciones</a>
+  </div>
+</body>
+</html>

@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button class="menu-toggle" id="menu-toggle">☰</button>
             <ul class="navbar-menu" id="navbar-menu">
                 <li><a href="../pagina/inicio.php" class="navbar-link" id="link-inicio">Inicio</a></li>
-                <li><a href="../usuarios/registro_user.php" class="navbar-link" id="link-usuarios">Usuarios</a></li>
+                <li><a href="../usuarios/gestion_user.php" class="navbar-link" id="link-usuarios">Usuarios</a></li>
                 <li><a href="../empleados/registrar_empleado.php" class="navbar-link" id="link-empleados">Empleados</a></li>
                 <li><a href="../empleados/tabla2.php" class="navbar-link" id="link-tabla">Gestión de empleados</a></li>
             </ul>
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2 class="user-form-title" >Registro de Usuario</h2>
     <form action="registro_user.php" method="post" class="user-form">
         <label for="email" class="user-form-label">Correo Electrónico:</label>
-        <input type="text" id="email" name="email" class="user-input-field" value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
+        <input type="email" id="email" name="email" class="user-input-field" value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
         <br><br>
 
         <label for="contrasena" class="user-form-label">Contraseña:</label>
